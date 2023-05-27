@@ -2,7 +2,7 @@ package com.unicap.salaobeleza.controller;
 
 import com.unicap.salaobeleza.model.Funcionario;
 import com.unicap.salaobeleza.service.FuncionarioService;
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

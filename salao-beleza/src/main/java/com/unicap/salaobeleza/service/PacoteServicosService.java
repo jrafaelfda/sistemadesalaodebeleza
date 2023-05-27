@@ -4,7 +4,7 @@ import com.unicap.salaobeleza.model.PacoteServicos;
 import com.unicap.salaobeleza.repository.PacoteServicosRepository;
 import com.unicap.salaobeleza.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-import com.unicap.salaobeleza.exception.ResourceNotFoundException;
+
 
 
 import java.util.List;
