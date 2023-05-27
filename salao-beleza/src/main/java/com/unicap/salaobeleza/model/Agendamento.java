@@ -17,7 +17,7 @@ public class Agendamento {
     @ManyToOne
     private Cliente cliente;
 
-    @ManyToOne
+	@ManyToOne
     private Funcionario funcionario;
 
     @ManyToOne
@@ -27,5 +27,7 @@ public class Agendamento {
     private PacoteServicos pacoteServicos;
 
     private LocalDateTime dataHora;
+
+	
 
 }
