@@ -1,7 +1,6 @@
 package com.unicap.salaobeleza.model;
 import lombok.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
+import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 
 
