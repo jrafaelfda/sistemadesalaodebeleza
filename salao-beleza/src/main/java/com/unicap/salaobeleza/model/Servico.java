@@ -1,7 +1,9 @@
 package com.unicap.salaobeleza.model;
 import lombok.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+
 
 @Getter
 @Setter
