@@ -41,39 +41,35 @@ public class AgendamentoService {
     }
 
     public Agendamento createAgendamento(Agendamento agendamento) {
-        // Verificar se Cliente e Funcionário estão presentes
+        
         if (agendamento.getCliente() == null || agendamento.getFuncionario() == null) {
             throw new IllegalArgumentException("Cliente e Funcionário devem ser fornecidos.");
         }
 
-        // Verificar se Serviço ou Pacote de Serviços está presente (não ambos)
         boolean hasServico = agendamento.getServico() != null;
         boolean hasPacoteServicos = agendamento.getPacoteServicos() != null;
         if ((hasServico && hasPacoteServicos) || (!hasServico && !hasPacoteServicos)) {
             throw new IllegalArgumentException("Deve ser fornecido apenas um dos seguintes: Serviço ou Pacote de Serviços.");
         }
 
-        // Carregar o Cliente
         Cliente cliente = clienteRepository.findById(agendamento.getCliente().getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado"));
         agendamento.setCliente(cliente);
 
-        // Carregar o Funcionário
         Funcionario funcionario = funcionarioRepository.findById(agendamento.getFuncionario().getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Funcionário não encontrado"));
         agendamento.setFuncionario(funcionario);
 
-        // Carregar o Serviço ou o Pacote de Serviços, conforme fornecido
         if (hasServico) {
             Servico servico = servicoRepository.findById(agendamento.getServico().getId())
                     .orElseThrow(() -> new ResourceNotFoundException("Serviço não encontrado"));
             agendamento.setServico(servico);
-            agendamento.setPacoteServicos(null); // Define como nulo para garantir que não haja Pacote de Serviços
+            agendamento.setPacoteServicos(null); 
         } else {
             PacoteServicos pacoteServicos = pacoteServicosRepository.findById(agendamento.getPacoteServicos().getId())
                     .orElseThrow(() -> new ResourceNotFoundException("Pacote de Serviços não encontrado"));
             agendamento.setPacoteServicos(pacoteServicos);
-            agendamento.setServico(null); // Define como nulo para garantir que não haja Serviço
+            agendamento.setServico(null); 
         }
 
         return agendamentoRepository.save(agendamento);

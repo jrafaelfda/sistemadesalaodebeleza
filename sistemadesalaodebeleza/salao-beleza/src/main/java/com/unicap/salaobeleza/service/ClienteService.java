@@ -31,7 +31,7 @@ public class ClienteService {
     }
 
     public Cliente updateCliente(Long id, Cliente clienteDetails) {
-        Cliente cliente = getClienteById(id); // Lançará uma exceção se o cliente não for encontrado
+        Cliente cliente = getClienteById(id); 
 
         cliente.setNome(clienteDetails.getNome());
         cliente.setEmail(clienteDetails.getEmail());
@@ -40,7 +40,7 @@ public class ClienteService {
     }
 
     public void deleteCliente(Long id) {
-        Cliente cliente = getClienteById(id); // Lançará uma exceção se o cliente não for encontrado
+        Cliente cliente = getClienteById(id); 
         clienteRepository.delete(cliente);
     }
 }
